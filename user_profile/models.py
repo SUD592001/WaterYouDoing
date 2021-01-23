@@ -21,11 +21,11 @@ class UserProfile(models.Model):
 
     def save(self, *args, **kwargs):
         self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
-        self.score += daily_bathroom_trips * settings.TOILET_FLUSH 
-        self.score += weekly_showers * shower_times * settings.NORMAL_SHOWER_MINUTE 
-        self.score += weekly_baths * settings.BATHTUB_FILL 
-        self.score += weekly_dishes * settings.DISHWASHER_CYCLE 
-        self.score += weekly_sprinkler * settings.SPRINKLER_MINUTE #total water usage
+        self.score += self.daily_bathroom_trips * settings.TOILET_FLUSH 
+        self.score += self.weekly_showers * self.shower_times * settings.NORMAL_SHOWER_MINUTE 
+        self.score += self.weekly_baths * settings.BATHTUB_FILL 
+        self.score += self.weekly_dishes * settings.DISHWASHER_CYCLE 
+        self.score += self.weekly_sprinkler * settings.SPRINKLER_MINUTE
         if self.swimming_pool :
             self.score = self.score + settings.SWIMMING_POOL_FILL
         super(UserProfile, self).save(*args, **kwargs)

@@ -22,7 +22,6 @@ def evaluate(request):
                 profile.weekly_dishes = data['weekly_dishes']
                 profile.weekly_sprinkler = data['weekly_sprinkler']
                 profile.swimming_pool = data['swimming_pool']
-                profile.score = 999
             except UserProfile.DoesNotExist:
                 profile = UserProfile(username=data['username'], weekly_laundry_loads = data['weekly_laundry_loads'],
                                       daily_bathroom_trips = data['daily_bathroom_trips'],
@@ -30,7 +29,6 @@ def evaluate(request):
                                       weekly_baths = data['weekly_baths'], weekly_dishes = data['weekly_dishes'],
                                       weekly_sprinkler = data['weekly_sprinkler'], 
                                       swimming_pool = data['swimming_pool'])
-                profile.score = 999
             # store profile in db
             profile.save()
             # go to results page
