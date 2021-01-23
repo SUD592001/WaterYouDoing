@@ -44,8 +44,6 @@ class EvaluatorForm(forms.Form):
     weekly_sprinkler = forms.IntegerField(label='On average, how many times do you water your lawn in a week? ', 
                                           required=True)
 
-    swimming_pool = forms.BooleanField(label='Do you have a swimming pool?', required=False)
-
     swimming_pool_choices = forms.ChoiceField(label='How Big Is Your Swimming Pool?', required=True, 
                                             choices=swimming_pool_choices)
 

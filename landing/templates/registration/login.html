@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Log in{% endblock %}
+{% block page-header %}Log in{% endblock %}
+
+{% block container %}
+<div class="white">
+{% if next and user.is_authenticated %}
+<p >Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+{% endif %}
+
+{% if form.errors %}
+<p >Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}    
+    <input type="submit" value="login">
+</form>
+<p><a class="white" href="{% url 'password_reset' %}">Forgot password?</a></p>
+</div>
+{% endblock %}

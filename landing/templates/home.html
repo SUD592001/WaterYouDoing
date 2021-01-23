@@ -9,6 +9,18 @@
 
 <body>
     <h1 class="title text-center py-3">Water U Doing</h1>
+    <h2>Account Management</h2>
+    <p>Welcome, {{ user }}</p>
+    <ul>
+        {% if user.is_authenticated %}
+        {% if user.is_staff %}<li><a href="/admin/">Admin Panel</a></li>{% endif %}
+        <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{# url 'register' #}">Sign up</a></li>
+        {% endif %}
+    </ul>
+    <h2>Pages</h2>
     <ul>
         <li><a href="{% url 'evaluate' %}">New Evaluation</a></li>
         <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>

@@ -6,29 +6,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/main.css"> 
-    <title>Evaluator</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <div id="container">
         <h1 class="logo">Water-U-Doing?</h1>
-        <div id="form-box">
-          <i id="prev-btn" class="fas fa-arrow-left"></i>
-          <i id="next-btn" class="fas fa-arrow-right"></i>
-          <div id="input-group">
-<<<<<<< HEAD
-            <input id="input-field" required maxlength="30">
-            <label id="input-label">First Name</label>
-=======
-            <input id="input-field" required>
-            <label id="input-label"></label>
->>>>>>> f24b20fda1e15a0a1b0e25e045f90942a10f9b1c
-            <div id="input-progress"></div>
-          </div>
-          <div id="progress-bar"></div>
-        </div>
-      </div>
+        <h2 class="page-header">{% block page-header %}{% endblock %}</h2>
+        {% block container %}{% endblock %}
+    </div>
     
-      <div class="header">        
+    <div class="header">        
         <!--Waves Container-->
         <div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -45,9 +32,6 @@
         </svg>
         </div>
         <!--Waves end-->
-        
-        </div>
-
-      <script src="/evaluate/main.js"></script>
+    </div>
 </body>
 </html>
