@@ -15,6 +15,12 @@ h1.end {
   opacity: 0;
   transition: 0.8s ease-in-out; }
 
+h2.page-header {
+  position: relative;
+  color: #fff;
+  font-size: 2em;
+}
+
 .waves {
   position: relative;
   width: 100%;
