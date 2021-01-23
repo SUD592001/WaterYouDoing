@@ -9,7 +9,9 @@
 <body>
     <h1 class="title text-center py-3">LeaderBoard</h1>
     {% for user in users %}
-    <p>{{ user }} --- score={{ user.score }}</p>
+    <p>{{ user }} --- score={{ user.score }}<br>
+        <a href="{{ user.profile_url }}">View Profile >></a>
+    </p>
     {% endfor %}
 </body>
 
