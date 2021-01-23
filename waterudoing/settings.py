@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'evaluator',
+    'landing',
     'leaderboard',
     'user_profile',
 ]
@@ -121,3 +122,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Data Value (in gallons)
+# TODO replace with proper API
+AVG_DAILY_WATER_LOW = 80
+AVG_DAILY_WATER_HI = 100
+DISHWASHER_CYCLE = 3.50
+TOP_LOAD_WASHER_LOAD = 40.0
+FRONT_LOAD_WASHER_LOAD = 15.8
+NORMAL_SHOWER_MINUTE = 4.50
+EFFICIENT_SHOWER_MINUTE = 2.10
+TOILET_FLUSH = 3.17
+BATHTUB_FILL = 37.0
+FAUCET_MINUTE = 2.10
+SPRINKLER_MINUTE = 4.75
+SWIMMING_POOL_FILL = 5500
