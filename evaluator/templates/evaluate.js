@@ -1,7 +1,7 @@
 // Questions Array
 const questions = [
     {% for field in form %}
-    { question: '{{ field }}'},
+    { question: '{{ field.label }}'},
     {% endfor %}
     // { question: 'Enter Your Email', pattern: /\S+@\S+\.\S+/ },
     // { question: 'Create A Password', type: 'password' }
