@@ -55,14 +55,30 @@ class UserProfile(models.Model):
         return reverse('view_profile', kwargs={'username': self.username})
 
     def save(self, *args, **kwargs):
-        self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
         self.score += self.daily_bathroom_trips * settings.TOILET_FLUSH 
-        self.score += self.weekly_showers * self.shower_times * settings.NORMAL_SHOWER_MINUTE 
         self.score += self.weekly_baths * settings.BATHTUB_FILL 
         self.score += self.weekly_dishes * settings.DISHWASHER_CYCLE 
         self.score += self.weekly_sprinkler * settings.SPRINKLER_MINUTE
+
+        if self.shower_head_choices == "Normal Shower Head" :
+            self.score += self.weekly_showers * self.shower_times * settings.NORMAL_SHOWER_MINUTE 
+        if self.shower_head_choices == "Efficient Shower Head" :
+            self.score += self.weekly_showers * self.shower_times * settings.EFFICIENT_SHOWER_MINUTE 
+
+        if self.washer_type_choices == "Top Load Washer" :
+            self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
+
+        if self.washer_type_choices == "Front Load Washer" :
+            self.score = self.weekly_laundry_loads * settings.FRONT_LOAD_WASHER_LOAD
+
         if self.swimming_pool :
-            self.score = self.score + settings.SWIMMING_POOL_FILL
+            if self.swimming_pool_choices == "Small" :
+                self.score = self.score + settings.SWIMMING_POOL_SMALL
+            if self.swimming_pool_choices == "Medium" :
+                self.score = self.score + settings.SWIMMING_POOL_MEDIUM
+            if self.swimming_pool_choices == "Large" :
+                self.score = self.score + settings.SWIMMING_POOL_LARGE
+
         super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
