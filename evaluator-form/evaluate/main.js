@@ -1,6 +1,6 @@
 // Questions Array
 const questions = [
-  { question: 'Enter Your First Name' },
+  { question: 'On average, how many times do you go to the bathroom each day?' },
   { question: 'Enter Your Last Name' },
   { question: 'Enter Your Email', pattern: /\S+@\S+\.\S+/ },
   { question: 'Create A Password', type: 'password' }
