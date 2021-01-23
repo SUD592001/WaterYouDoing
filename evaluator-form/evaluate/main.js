@@ -30,6 +30,9 @@ const questions = [
   
   // Next Button Click
   nextBtn.addEventListener('click', validate);
+
+  //Previous Button Click
+  prevBtn.addEventListener('click', goPrevious);
   
   // Input Field Enter Click
   inputField.addEventListener('keyup', e => {
@@ -102,6 +105,26 @@ const questions = [
     }
   }
   
+  function goPrevious() {
+    position --;
+    formBox.className = '';
+    setTimeout(transform, shakeTime * 0, 0, 10);
+    setTimeout(transform, shakeTime * 1, 0, 0);
+
+    if (questions[position]) {
+      hideQuestion();
+      getQuestion();
+    } else {
+      // Remove If No More Questions
+      hideQuestion();
+      formBox.className = 'close';
+      progress.style.width = '100%';
+  
+      // Form Complete
+      formComplete();
+    }
+  }
+
   // Field Input Passed
   function inputPass() {
     formBox.className = '';
@@ -137,7 +160,7 @@ const questions = [
       document.createTextNode(
         `Thanks ${
           questions[0].answer
-        } You are registered and will get an email shortly`
+        }`
       )
     );
     setTimeout(() => {

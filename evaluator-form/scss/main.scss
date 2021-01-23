@@ -90,7 +90,7 @@ h1.end {
   }
 
 #container {
-  height: 100vh;
+  height: 300vh;
   display: flex;
   flex-direction: column;
   justify-content: top;
@@ -101,6 +101,7 @@ h1.end {
   background: #fff;
   position: relative;
   width: 600px;
+  height: 600px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.1),
