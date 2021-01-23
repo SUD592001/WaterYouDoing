@@ -16,6 +16,28 @@ class UserProfile(models.Model):
     swimming_pool = models.BooleanField(null=False, default=False)
     score = models.IntegerField(null=False)
 
+    shower_head_choices = [
+        ("Normal Shower Head", "Normal Shower Head"),
+        ("Efficient Shower Head", "Efficient Shower Head"),
+    ]
+
+    shower_head_choices = models.CharField (
+        max_length = 30,
+        null=False,
+        choices = shower_head_choices,
+    )
+
+    washer_type_choices = [
+        ("Top Load Washer", "Top Load Washer"),
+        ("Front Load Washer", "Front Load Washer"),
+    ]
+
+    washer_type_choices = models.CharField (
+        max_length = 30,
+        null=False,
+        choices = washer_type_choices,
+    )
+
     def profile_url(self):
         return reverse('view_profile', kwargs={'username': self.username})
 

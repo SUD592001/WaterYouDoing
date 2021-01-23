@@ -1,6 +1,11 @@
 from django import forms
 
 
+shower_head_choices = [
+    ("Normal Shower Head", "Normal Shower Head"),
+    ("Efficient Shower Head", "Efficient Shower Head"),
+]
+
 class EvaluatorForm(forms.Form):
     weekly_laundry_loads = forms.IntegerField(label='On average, how many loads of laundry do you use ' +
                                                     'per week?', required=True)
@@ -9,6 +14,10 @@ class EvaluatorForm(forms.Form):
                                                     required=True)
 
     weekly_showers = forms.IntegerField(label='On average, how many showers do you take in a week? ', required=True)
+    
+    shower_head_choices = forms.ChoiceField(label='Do you have a normal, or efficient shower head?', required=True, 
+                                            choices=shower_head_choices)
+    
 
     shower_times = forms.IntegerField(label='On average, how long are your showers? (in minutes) ', required=True)
 
