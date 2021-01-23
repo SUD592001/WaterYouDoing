@@ -21,5 +21,3 @@ class EvaluatorForm(forms.Form):
                                           required=True)
 
     swimming_pool = forms.BooleanField(label='Do you have a swimming pool?', required=False)
-
-    username = forms.CharField(label='Username', min_length=4, max_length=30, required=True)

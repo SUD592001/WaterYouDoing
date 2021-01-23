@@ -20,6 +20,10 @@ h2.page-header {
   font-family: 'Roboto', sans-serif;
   font-size: 2em; }
 
+.white {
+  color: #fff;
+}
+
 .waves {
   position: sticky;
   width: 100%;

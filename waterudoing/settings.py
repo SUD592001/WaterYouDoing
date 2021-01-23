@@ -32,16 +32,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'evaluator',
+    'landing',
+    'leaderboard',
+    'user_profile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'evaluator',
-    'landing',
-    'leaderboard',
-    'user_profile',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +124,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_serve')
+
+# Authentication stuff
+LOGOUT_REDIRECT_URL = '/'
 
 # Data Value (in gallons)
 # TODO replace with proper API

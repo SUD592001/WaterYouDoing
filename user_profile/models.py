@@ -1,10 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
 
 
 class UserProfile(models.Model):
-    username = models.CharField(max_length=30, null=False, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False, unique=True)
     bio = models.TextField(null=True, blank=True)
     weekly_laundry_loads = models.IntegerField(null=False)
     daily_bathroom_trips = models.IntegerField(null=False)
@@ -17,7 +18,7 @@ class UserProfile(models.Model):
     score = models.IntegerField(null=False)
 
     def profile_url(self):
-        return reverse('view_profile', kwargs={'username': self.username})
+        return reverse('view_profile', kwargs={'username': self.user.username})
 
     def save(self, *args, **kwargs):
         self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
@@ -31,4 +32,4 @@ class UserProfile(models.Model):
         super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.username
+        return self.user.username
