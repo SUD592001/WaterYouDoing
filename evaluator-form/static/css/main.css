@@ -15,11 +15,6 @@ h1.end {
   opacity: 0;
   transition: 0.8s ease-in-out; }
 
-h2.page-header {
-  color: #fff;
-  font-family: 'Roboto', sans-serif;
-  font-size: 2em; }
-
 .waves {
   position: sticky;
   width: 100%;

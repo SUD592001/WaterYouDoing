@@ -6,22 +6,45 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/main.css"> 
-    <title>Evaluator</title>
+    <link rel="stylesheet" href="/static/css/leaderboard.css">
+    <title>Leaderboard</title>
 </head>
 <body>
     <div id="container">
         <h1 class="logo">Water-U-Doing?</h1>
-        <div id="form-box">
-          <i id="prev-btn" class="fas fa-arrow-left"></i>
-          <i id="next-btn" class="fas fa-arrow-right"></i>
-          <div id="input-group">
-            <input id="input-field" required>
-            <label id="input-label"></label>
-            <div id="input-progress"></div>
-          </div>
-          <div id="progress-bar"></div>
+        <h2 class="page-header">Leaderboard</h2>
+    <style type="text/css">
+
+        </style>
+        <table class="tg">
+        <colgroup>
+        <col style="width: 60px">
+        <col style="width: 200px">
+        <col style="width: 150px">
+        <col style="width: 110px">
+        </colgroup>
+        <thead>
+            <tr>
+            <th class="tg-head"><span style="font-weight:bold">Rank</span></th>
+            <th class="tg-head"><span style="font-weight:bold">Username</span></th>
+            <th class="tg-head"><span style="font-weight:bold">Score</span></th>
+            <th class="tg-head"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+            <td class="tg-entry">{{ forloop.counter }}</td>
+            <td class="tg-entry">{{ user.username }}</td>
+            <td class="tg-entry">{{ user.score }}</td>
+            <td class="tg-profile"><a href="{{ user.profile_url }}">View Profile &gt;&gt;</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
         </div>
-      </div>
+    </div>
+
     
       <div class="header">        
         <!--Waves Container-->
@@ -42,7 +65,5 @@
         <!--Waves end-->
         
         </div>
-
-      <script src="/evaluate/main.js"></script>
 </body>
 </html>
