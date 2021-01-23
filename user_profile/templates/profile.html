@@ -8,11 +8,10 @@
 </head>
 
 <body>
-    <h1 class="title text-center py-3">Profile Page</h1>
-    <p>{{ user }} --- Profile Name={{ user.user }}
-        {{ user }} --- Profile Description={{ user.bio }}
-        {{ user }} --- Profile Score={{ user.score }}
-    </p>
+    <h1 class="title text-center py-3">Profile Page -- {{ profile }}</h1>
+    <p>Profile Name={{ profile.user }}</p>
+    <p>Profile Description={{ profile.bio }}</p>
+    <p>Profile Score={{ profile.score }}</p>
 </body>
 
 </html>

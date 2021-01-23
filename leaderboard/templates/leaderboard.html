@@ -35,7 +35,7 @@
             {% for user in users %}
             <tr>
             <td class="tg-entry">{{ forloop.counter }}</td>
-            <td class="tg-entry">{{ user.username }}</td>
+            <td class="tg-entry">{{ user.user }}</td>
             <td class="tg-entry">{{ user.score }}</td>
             <td class="tg-profile"><a href="{{ user.profile_url }}">View Profile &gt;&gt;</a></td>
             </tr>
