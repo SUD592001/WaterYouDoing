@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+</head>
+
+<body>
+    <h1 class="title text-center py-3">Profile Page</h1>
+    {% for user in users %}
+    <p>{{ user }} --- Profile Name={{ user.username }}
+        {{ user }} --- Profile Description={{ user.bio }}
+        {{ user }} --- Profile Score={{ user.score }}
+    </p>
+    {% endfor %}
+</body>
+
+</html>
