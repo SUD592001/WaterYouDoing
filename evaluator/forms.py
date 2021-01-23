@@ -6,9 +6,24 @@ shower_head_choices = [
     ("Efficient Shower Head", "Efficient Shower Head"),
 ]
 
+washer_type_choices = [
+    ("Top Load Washer", "Top Load Washer"),
+    ("Front Load Washer", "Front Load Washer"),
+]
+
+swimming_pool_choices = [
+        ("Small", "Small"),
+        ("Medium", "Medium"),
+        ("Large", "Large"),
+        ("I Don't Have A Pool", "I Don't Have A Pool"),
+    ]
+
 class EvaluatorForm(forms.Form):
     weekly_laundry_loads = forms.IntegerField(label='On average, how many loads of laundry do you use ' +
                                                     'per week?', required=True)
+
+    washer_type_choices = forms.ChoiceField(label='Do you have a top load, or front load washer?', required=True, 
+                                            choices=washer_type_choices)
 
     daily_bathroom_trips = forms.IntegerField(label='On average, how many times do you go to the bathroom each day? ', 
                                                     required=True)
@@ -30,5 +45,8 @@ class EvaluatorForm(forms.Form):
                                           required=True)
 
     swimming_pool = forms.BooleanField(label='Do you have a swimming pool?', required=False)
+
+    swimming_pool_choices = forms.ChoiceField(label='How Big Is Your Swimming Pool?', required=True, 
+                                            choices=swimming_pool_choices)
 
     username = forms.CharField(label='Username', min_length=4, max_length=30, required=True)

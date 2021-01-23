@@ -38,6 +38,19 @@ class UserProfile(models.Model):
         choices = washer_type_choices,
     )
 
+    swimming_pool_choices = [
+        ("Small", "Small"),
+        ("Medium", "Medium"),
+        ("Large", "Large"),
+        ("I Don't Have A Pool", "I Don't Have A Pool"),
+    ]
+
+    swimming_pool_choices = models.CharField (
+        max_length = 30,
+        null=False,
+        choices = swimming_pool_choices
+    )
+
     def profile_url(self):
         return reverse('view_profile', kwargs={'username': self.username})
 
