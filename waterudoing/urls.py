@@ -20,5 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('evaluate/', include('evaluator.urls')),
     path('leaderboard/', include('leaderboard.urls')),
-    # path('profile/', include('user_profile.urls')),
+    path('profile/', include('user_profile.urls')),
 ]
