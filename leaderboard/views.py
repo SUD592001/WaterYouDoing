@@ -1,9 +1,8 @@
-from django.shortcuts import render, HttpResponse
-from user_profile.models import UserProfile
-
+from django.shortcuts import render, 
 
 # Create your views here.
-def test(request):
+def home(request):
+    #return HttpResponse("This is my homepage (/)")
     users = UserProfile.objects.all().order_by('score')
-    print(users)
-    return HttpResponse(request, users[0])
+    context = {'name': 'LeaderBoard', 'project': 'Django', 'users': users}
+    return render(request, 'leaderBoard.html', context)
