@@ -1,0 +1,73 @@
+.tg {
+    border-collapse: collapse;
+    border-color: #aabcfe;
+    border-spacing: 0;
+    margin: 0px auto;
+}
+
+.tg td {
+    background-color: #e8edff;
+    border-bottom-width: 1px;
+    border-color: #aabcfe;
+    border-style: solid;
+    border-top-width: 1px;
+    border-width: 0px;
+    color: #669;
+    font-family: sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    background-color: #b9c9fe;
+    border-bottom-width: 1px;
+    border-color: #aabcfe;
+    border-style: solid;
+    border-top-width: 1px;
+    border-width: 0px;
+    color: #039;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg .tg-head {
+    color: #343434;
+    position: -webkit-sticky;
+    position: sticky;
+    text-align: left;
+    top: -1px;
+    vertical-align: top;
+    will-change: transform
+}
+
+.tg .tg-entry {
+    color: #343434;
+    text-align: left;
+    vertical-align: middle
+}
+
+.tg .tg-profile {
+    color: #343434;
+    text-align: right;
+    vertical-align: middle
+}
+
+@media screen and (max-width: 767px) {
+    .tg {
+        width: auto !important;
+    }
+    .tg col {
+        width: auto !important;
+    }
+    .tg-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: auto 0px;
+    }
+}
