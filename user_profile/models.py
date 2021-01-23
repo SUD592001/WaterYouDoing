@@ -55,7 +55,8 @@ class UserProfile(models.Model):
         return reverse('view_profile', kwargs={'username': self.username})
 
     def save(self, *args, **kwargs):
-        self.score += self.daily_bathroom_trips * settings.TOILET_FLUSH 
+        self.score = 0
+        self.score += self.daily_bathroom_trips * settings.TOILET_FLUSH * 7
         self.score += self.weekly_baths * settings.BATHTUB_FILL 
         self.score += self.weekly_dishes * settings.DISHWASHER_CYCLE 
         self.score += self.weekly_sprinkler * settings.SPRINKLER_MINUTE
