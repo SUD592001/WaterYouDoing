@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'evaluator',
+    'landing',
     'leaderboard',
     'user_profile',
 ]
@@ -121,3 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Data Value
+# TODO replace with proper API
+AVG_DAILY_WATER_LOW = 80
+AVG_DAILY_WATER_HI = 100
