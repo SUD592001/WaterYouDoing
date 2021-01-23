@@ -4,4 +4,4 @@ from user_profile.models import UserProfile
 def view_profile(request):
     users = UserProfile.objects.all().order_by('-score')
     context = {'name': 'Profile', 'project': 'Django', 'users': users}
-    return render(request, 'profile.html', context)
+    return render(request, 'profile.html', context)git
