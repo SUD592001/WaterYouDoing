@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.urls import reverse
 
 
@@ -17,6 +18,17 @@ class UserProfile(models.Model):
 
     def profile_url(self):
         return reverse('view_profile', kwargs={'username': self.username})
+
+    def save(self, *args, **kwargs):
+        self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
+        self.score += daily_bathroom_trips * settings.TOILET_FLUSH 
+        self.score += weekly_showers * shower_times * settings.NORMAL_SHOWER_MINUTE 
+        self.score += weekly_baths * settings.BATHTUB_FILL 
+        self.score += weekly_dishes * settings.DISHWASHER_CYCLE 
+        self.score += weekly_sprinkler * settings.SPRINKLER_MINUTE #total water usage
+        if self.swimming_pool :
+            self.score = self.score + settings.SWIMMING_POOL_FILL
+        super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.username
