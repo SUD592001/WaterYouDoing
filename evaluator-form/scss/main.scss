@@ -184,8 +184,8 @@ h1.end {
     top: 32px;
     left: 20px;
     font-size: 20px;
-    font-weight: bold;
-    transition: 0.2s ease-in-out;
+    font-weight: normal;
+    //transition: 0.2s ease-in-out;
   }
 
   input:valid + #input-label {
@@ -199,6 +199,7 @@ h1.end {
 }
 
 #input-progress {
+  margin-top: 35px;
   border-bottom: 3px solid $primary;
   width: 0;
   transition: width 0.6s ease-in-out;
