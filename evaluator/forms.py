@@ -20,6 +20,6 @@ class EvaluatorForm(forms.Form):
     weekly_sprinkler = forms.IntegerField(label='On average, how many times do you water your lawn in a week? ', 
                                           required=True)
 
-    swimming_pool = forms.IntegerField(label='Do you have a swimming pool?',  required=True)
+    swimming_pool = forms.BooleanField(label='Do you have a swimming pool?', required=False)
 
     username = forms.CharField(label='Username', min_length=4, max_length=30, required=True)
