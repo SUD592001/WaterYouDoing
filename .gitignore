@@ -60,6 +60,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Node Garbage
+node_modules/
+
 # Dev
 .idea/
 .vscode/
