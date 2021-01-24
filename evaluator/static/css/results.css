@@ -92,7 +92,6 @@ article.card .infos .flag {
   transform: translateY(-50%);
   width: 35px;
   height: 23px;
-  background: #4e958b no-repeat top right;
   background-size: 100% auto;
   display: inline-block;
 }

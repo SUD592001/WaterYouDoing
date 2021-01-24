@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'evaluator',
     'landing',
     'leaderboard',
-    'user_profile',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -144,4 +143,4 @@ FAUCET_MINUTE = 2.10
 SPRINKLER_MINUTE = 4.75
 SWIMMING_POOL_SMALL = 5500
 SWIMMING_POOL_MEDIUM = 8000
-SWIMMING_pOOL_LARGE = 10500
+SWIMMING_POOL_LARGE = 10500

@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, HttpResponse
+from django.contrib.auth.models import User
+from django.shortcuts import render, HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from evaluator.forms import EvaluatorForm
-from user_profile.models import UserProfile
+from landing.models import UserProfile
 
 
 @login_required
@@ -45,9 +47,44 @@ def evaluate(request):
     return render(request, 'evaluate.html')
 
 
-def evaluate_js(request):
-    return render(request, 'evaluate.js', content_type='text/javascript')
+@login_required
+def result(request, username=None):
+    # find profile
+    if username:
+        user = User.objects.get(username=username)
+        profile = UserProfile.objects.get(user=user)
+    else:
+        profile = UserProfile.objects.get(user=request.user)
+    # assign tier and message
+    if profile.score > settings.AVG_WEEKLY_WATER_HI:
+        tier = 'water-u-doing.php'
+        color = 'D41913'
+        message = 'BAD'
+    elif settings.AVG_WEEKLY_WATER_LOW <= profile.score <= settings.AVG_WEEKLY_WATER_HI:
+        tier = 'water-u-doing.java'
+        color = 'D47313'
+        message = 'OKAY'
+    else:
+        tier = 'water-u-doing.py'
+        color = '4E958B'
+        message = 'Good'
+    context = {
+        'user': request.user.username,
+        'score': profile.score,
+        'tier': tier,
+        'color': color,
+        'message': message
+    }
+    return render(request, 'results.html', context=context)
 
 
-def result(request):
-    return render(request, 'results.html')
+@login_required
+def detail(request, username):
+    user = User.objects.get(username=username)
+    profile = UserProfile.objects.get(user=user)
+    context = {'profile': profile}
+    return render(request, 'details.html', context)
+
+
+def learn_more(request):
+    return HttpResponseRedirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ')

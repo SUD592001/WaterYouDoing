@@ -197,17 +197,6 @@ function formComplete() {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
   console.log(buildPOSTData());
   xhr.send(buildPOSTData());
-  const h1 = document.createElement('h1');
-  h1.classList.add('end');
-  h1.appendChild(
-    document.createTextNode(
-      `Thanks ${
-        questions[0].answer
-      }`
-    )
-  );
-  setTimeout(() => {
-    formBox.parentElement.appendChild(h1);
-    setTimeout(() => (h1.style.opacity = 1), 50);
-  }, 1000);
+  // show result
+  window.location.href = '/evaluate/result/'
 }
