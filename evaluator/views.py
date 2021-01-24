@@ -47,3 +47,7 @@ def evaluate(request):
 
 def evaluate_js(request):
     return render(request, 'evaluate.js', content_type='text/javascript')
+
+
+def result(request):
+    return render(request, 'results.html')
