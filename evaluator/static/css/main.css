@@ -20,14 +20,10 @@ h1.end {
   font-family: 'Roboto', sans-serif;
     font-size: 2em; }
 
-.white {
-  color: #fff;
-}
-
 .waves {
   position: sticky;
   width: 100%;
-  height: 15vh;
+  height: 10vh;
   margin-bottom: -7px;
   /*Fix for safari gap*/
   min-height: 300px;
