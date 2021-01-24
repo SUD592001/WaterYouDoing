@@ -14,10 +14,11 @@
     <ul>
         {% if user.is_authenticated %}
         {% if user.is_staff %}<li><a href="/admin/">Admin Panel</a></li>{% endif %}
+        <li><a href="{% url 'password_change' %}">Change password</a></li>
         <li><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
         <li><a href="{% url 'login' %}">Log in</a></li>
-        <li><a href="{# url 'register' #}">Sign up</a></li>
+        <li><a href="{% url 'signup' %}">Sign up</a></li>
         {% endif %}
     </ul>
     <h2>Pages</h2>
