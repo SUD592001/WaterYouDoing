@@ -47,3 +47,6 @@ def evaluate_js(request):
     form = EvaluatorForm()
     context = {'form': form}
     return render(request, 'evaluate.js', context=context, content_type='text/javascript')
+
+def result(request):
+    return render(request, 'results.html')
