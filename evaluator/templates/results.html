@@ -4,14 +4,46 @@
 {% block container %}
 <link rel="stylesheet" href="/static/css/results.css">
 <article class="card">
-  <div class="thumb"></div>
+  {% if {{ class }} is "green" %}
+  <div class="thumb-1"></div>
   <div class="infos">
-    <h2 class="title">{{ tier }}<span class="flag" style="background: #{{ color }} no-repeat top right;"></span></h2>
+    <h2 class="title">{{ tier }}<span class="flag" style="background: green no-repeat top right;">{{ class }}</span></h2>
     <h3 class="date"></h3>
     <h1 class="seats">Your score: {{ score }}</h1>
     <p class="txt">{{ message }}</p>
     <h3 class="details"><a href="{% url 'learn_more' %}">Learn More</a><br>
     <a href="{% url 'detail' username=user %}">View score detail</a></h3>
   </div>
+  {% elif {{ class }} is "yellow" %}
+  <div class="thumb-2"></div>
+  <div class="infos">
+    <h2 class="title">{{ tier }}<span class="flag" style="background: yellow no-repeat top right;">{{ class }}</span></h2>
+    <h3 class="date"></h3>
+    <h1 class="seats">Your score: {{ score }}</h1>
+    <p class="txt">{{ message }}</p>
+    <h3 class="details"><a href="{% url 'learn_more' %}">Learn More</a><br>
+    <a href="{% url 'detail' username=user %}">View score detail</a></h3>
+  </div>
+  {% {{ class }} is "orange" %}
+  <div class="thumb-3"></div>
+  <div class="infos">
+    <h2 class="title">{{ tier }}<span class="flag" style="background: orange no-repeat top right;">{{ class }}</span></h2>
+    <h3 class="date"></h3>
+    <h1 class="seats">Your score: {{ score }}</h1>
+    <p class="txt">{{ message }}</p>
+    <h3 class="details"><a href="{% url 'learn_more' %}">Learn More</a><br>
+    <a href="{% url 'detail' username=user %}">View score detail</a></h3>
+  </div>
+  {% {{ class }} is "red" %}
+  <div class="thumb-4"></div>
+  <div class="infos">
+    <h2 class="title">{{ tier }}<span class="flag" style="background: red no-repeat top right;">{{ class }}</span></h2>
+    <h3 class="date"></h3>
+    <h1 class="seats">Your score: {{ score }}</h1>
+    <p class="txt">{{ message }}</p>
+    <h3 class="details"><a href="{% url 'learn_more' %}">Learn More</a><br>
+    <a href="{% url 'detail' username=user %}">View score detail</a></h3>
+  </div>
+  {% endif %}
 </article>
 {% endblock %}
