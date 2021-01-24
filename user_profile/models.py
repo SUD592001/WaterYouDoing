@@ -67,10 +67,10 @@ class UserProfile(models.Model):
             self.score += self.weekly_showers * self.shower_times * settings.EFFICIENT_SHOWER_MINUTE 
 
         if self.washer_type_choices == "Top Load Washer" :
-            self.score = self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
+            self.score += self.weekly_laundry_loads * settings.TOP_LOAD_WASHER_LOAD
 
         if self.washer_type_choices == "Front Load Washer" :
-            self.score = self.weekly_laundry_loads * settings.FRONT_LOAD_WASHER_LOAD
+            self.score += self.weekly_laundry_loads * settings.FRONT_LOAD_WASHER_LOAD
 
         if self.swimming_pool :
             if self.swimming_pool_choices == "Small" :
