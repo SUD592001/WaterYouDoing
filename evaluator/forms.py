@@ -2,21 +2,21 @@ from django import forms
 
 
 shower_head_choices = [
-    ("Normal Shower Head", "Normal Shower Head"),
-    ("Efficient Shower Head", "Efficient Shower Head"),
+    ("normal", "Normal shower head"),
+    ("efficient", "Efficient shower head"),
 ]
 
 washer_type_choices = [
-    ("Top Load Washer", "Top Load Washer"),
-    ("Front Load Washer", "Front Load Washer"),
+    ("top", "Top-load washer"),
+    ("front", "Front-load washer"),
 ]
 
 swimming_pool_choices = [
-        ("Small", "Small"),
-        ("Medium", "Medium"),
-        ("Large", "Large"),
-        ("I Don't Have A Pool", "I Don't Have A Pool"),
-    ]
+    ("none", "No pool"),
+    ("small", "Small pool"),
+    ("medium", "Medium pool"),
+    ("large", "Large pool"),
+]
 
 class EvaluatorForm(forms.Form):
     weekly_laundry_loads = forms.IntegerField(required=True)
