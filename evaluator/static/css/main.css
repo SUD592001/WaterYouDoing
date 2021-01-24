@@ -16,6 +16,8 @@ h1.end {
   transition: 0.8s ease-in-out; }
 
   h2.page-header {
+    top: 0;
+    position: absolute;
     color: #fff;
   font-family: 'Roboto', sans-serif;
     font-size: 2em; }
