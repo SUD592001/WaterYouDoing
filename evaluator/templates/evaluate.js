@@ -3,16 +3,16 @@ const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].getAttrib
 
 // Questions Array
 const questions = [
-    { question: 'On average, how many loads of laundry do you use per week?', name: 'weekly_laundry_loads', type: 'number'},
+    { question: 'On average, how many loads of laundry do you use per week?', name: 'weekly_laundry_loads', type: 'text', pattern: /^[0-9]+$/},
     { question: 'Do you have a top load, or front load washer?', name: 'washer_type'},
-    { question: 'On average, how many times do you go to the bathroom each day?', name: 'daily_bathroom_trips', type: 'number'},
-    { question: 'On average, how many showers do you take in a week?', name: 'weekly_showers', type: 'number'},
+    { question: 'On average, how many times do you go to the bathroom each day?', name: 'daily_bathroom_trips', type: 'text', pattern: /^[0-9]+$/},
+    { question: 'On average, how many showers do you take in a week?', name: 'weekly_showers', type: 'text', pattern: /^[0-9]+$/},
     { question: 'Do you have a normal, or efficient shower head?', name: 'shower_head'},
-    { question: 'On average, how long are your showers? (in minutes)', name: 'shower_times', type: 'number'},
-    { question: 'On average, how many baths do you take in a week?', name: 'weekly_baths', type: 'number'},
-    { question: 'On average, how many times do you wash your dishes in a week?', name: 'weekly_dishes', type: 'number'},
-    { question: 'On average, how many times do you water your lawn in a week?', name: 'weekly_sprinkler', type: 'number'},
-    { question: 'How Big Is Your Swimming Pool, if you have one?', name: 'swimming_pool'},
+    { question: 'On average, how long are your showers? (in minutes)', name: 'shower_times', type: 'text', pattern: /^[0-9]+$/},
+    { question: 'On average, how many baths do you take in a week?', name: 'weekly_baths', type: 'text', pattern: /^[0-9]+$/},
+    { question: 'On average, how many times do you wash your dishes in a week?', name: 'weekly_dishes', type: 'text', pattern: /^[0-9]+$/},
+    { question: 'On average, how many times do you water your lawn in a week?', name: 'weekly_sprinkler', type: 'text', pattern: /^[0-9]+$/},
+    { question: 'How big is your swimming pool, if you have one?', name: 'swimming_pool'},
     // { question: 'Enter Your Email', pattern: /\S+@\S+\.\S+/ },
     // { question: 'Create A Password', type: 'password' }
   ];
@@ -48,6 +48,9 @@ prevBtn.addEventListener('click', goPrevious);
 // Input Field Enter Click
 inputField.addEventListener('keyup', e => {
   if (e.keyCode == 13) {
+    /*if (position == 0 || position == 2 || position == 3 || (position >= 4 && position <=8))
+    intValidate();
+    else*/ 
     validate();
   }
 });
@@ -95,10 +98,20 @@ function transform(x, y) {
   formBox.style.transform = `translate(${x}px, ${y}px)`;
 }
 
+// Validate int Field
+function intValidate() {
+  // Make Sure Pattern Matches If There Is One
+  if (!inputField.value.match(questions[position].pattern || /.+/)) {
+    inputFail();
+  } else {
+    inputPass();
+  }
+}
+
 // Validate Field
 function validate() {
   // Make Sure Pattern Matches If There Is One
-  if (!inputField.value.match(questions[position].pattern || /.+/)) {
+  if (!inputField.value.match(questions[position].pattern)) {
     inputFail();
   } else {
     inputPass();
