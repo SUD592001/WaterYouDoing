@@ -59,23 +59,27 @@ def result(request, username=None):
     except (User.DoesNotExist, UserProfile.DoesNotExist):
         return render(request, 'error.html', status=400)
     # assign tier and message
-    if profile.score > settings.AVG_WEEKLY_WATER_HI:
-        tier = 'water-u-doing.php'
-        color = 'D41913'
+    if profile.score > settings.AVG_WEEKLY_WATER_HI * 1.20:
+        tier = 'water-u-doing.matlab'
+        css_class = 'red'
         message = 'BAD'
+    elif profile.score > settings.AVG_WEEKLY_WATER_HI:
+        tier = 'water-u-doing.php'
+        css_class = 'orange'
+        message = 'You really should start saving water.'
     elif settings.AVG_WEEKLY_WATER_LOW <= profile.score <= settings.AVG_WEEKLY_WATER_HI:
         tier = 'water-u-doing.java'
-        color = 'D47313'
-        message = 'OKAY'
+        css_class = 'yellow'
+        message = 'Okay, but you could do better.'
     else:
         tier = 'water-u-doing.py'
-        color = '4E958B'
-        message = 'Good'
+        css_class = 'green'
+        message = 'Good. Thanks for saving water!'
     context = {
         'user': request.user.username,
         'score': profile.score,
         'tier': tier,
-        'color': color,
+        'class': css_class,
         'message': message
     }
     return render(request, 'results.html', context=context)
