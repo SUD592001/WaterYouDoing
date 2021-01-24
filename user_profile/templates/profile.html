@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/main.css"> 
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div id="container">
+        <h1 class="logo">Water-U-Doing?</h1>
+        <h2 class="page-header">Profile</h2>
+        
+        <table class="content-table">
+        <tbody>
+         
+            
+            <tr>
+            <th>Name</th>
+            <td class="tg-entry">{{ profile.user }}</td>
+
+            </tr>
+
+            <tr>
+                <th>Biography</th>
+                <td class="tg-entry">{{ profile.bio }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Score</th>
+                <td class="tg-entry">{{ profile.score }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Weekly Loads Of Laundry</th>
+                <td class="tg-entry">{{ profile.weekly_laundry_loads }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Number Of Daily Bathroom Trips</th>
+                <td class="tg-entry">{{ profile.daily_bathroom_trips }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Number Of Weekly Showers</th>
+                <td class="tg-entry">{{ profile.weekly_showers }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Shower Length</th>
+                <td class="tg-entry">{{ profile.shower_times }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Number Of Weekly Baths</th>
+                <td class="tg-entry">{{ profile.weekly_baths }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Weekly Loads Of Dishes Washed</th>
+                <td class="tg-entry">{{ profile.weekly_dishes }}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Weekly Lawn Watering</th>
+                <td class="tg-entry">{{ profile.weekly_sprinkler}}</td>
+    
+            </tr>
+
+            <tr>
+                <th>Pool Size</th>
+                <td class="tg-entry">{{ profile.swimming_pool}}</td>
+    
+            </tr>
+
+        </tbody>
+        </table>
+        </div>
+    </div>
+
+    
+      <div class="header">        
+        <!--Waves Container-->
+        <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+        </svg>
+        </div>
+        <!--Waves end-->
+        
+        </div>
+</body>
+</html>

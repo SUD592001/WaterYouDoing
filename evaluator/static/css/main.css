@@ -20,9 +20,9 @@ h1.end {
 
   h2.page-header {
     top: 0;
-    position: absolute;
+    /*position: absolute;*/
     color: #fff;
-  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 2em; }
 
 .waves {
@@ -83,7 +83,7 @@ h1.end {
     font-size: 24px; } }
 
 #container {
-  height: 80vh;
+  height: 78.8vh;
   display: flex;
   flex-direction: column;
   justify-content: top;
