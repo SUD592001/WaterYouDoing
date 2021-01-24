@@ -6,7 +6,6 @@ from django.core.exceptions import ValidationError
 
 class SignupForm(UserCreationForm):
     email = forms.EmailField(label='Email address', required=True)
-    bio = forms.CharField(required=False, widget=forms.Textarea)
 
     def clean(self):
         data = super().clean()

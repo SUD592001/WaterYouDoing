@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}{{ profile.user }}'s details{% endblock %}
+{% block page-header %}{{ profile.user }}'s details{% endblock %}
+{% block container %}
+<link rel="stylesheet" href="/static/css/leaderboard.css">
+<table class="tg">
+<colgroup>
+<col style="width: 500px">
+<col style="width: 500px">
+</colgroup>
+
+<tbody>           
+    <tr>
+    <th>Name</th>
+    <td class="tg-entry">{{ profile.user }}</td>
+    </tr>
+
+    <tr>
+        <th>Score</th>
+        <td class="tg-entry">{{ profile.score }}</td>
+    </tr>
+
+    <tr>
+        <th>Weekly Loads Of Laundry</th>
+        <td class="tg-entry">{{ profile.weekly_laundry_loads }}</td>
+    </tr>
+
+    <tr>
+        <th>Number Of Daily Bathroom Trips</th>
+        <td class="tg-entry">{{ profile.daily_bathroom_trips }}</td>
+    </tr>
+
+    <tr>
+        <th>Number Of Weekly Showers</th>
+        <td class="tg-entry">{{ profile.weekly_showers }}</td>    
+    </tr>
+
+    <tr>
+        <th>Shower Length</th>
+        <td class="tg-entry">{{ profile.shower_times }}</td>
+    </tr>
+
+    <tr>
+        <th>Number Of Weekly Baths</th>
+        <td class="tg-entry">{{ profile.weekly_baths }}</td>
+    </tr>
+
+    <tr>
+        <th>Weekly Loads Of Dishes Washed</th>
+        <td class="tg-entry">{{ profile.weekly_dishes }}</td>
+    </tr>
+
+    <tr>
+        <th>Weekly Lawn Watering</th>
+        <td class="tg-entry">{{ profile.weekly_sprinkler}}</td>
+    </tr>
+
+    <tr>
+        <th>Pool Size</th>
+        <td class="tg-entry">{{ profile.swimming_pool}}</td>
+    </tr>
+
+</tbody>
+</table>
+
+<p><a href="{% url 'result' username=user %}">View score summary</a></p>
+{% endblock %}
