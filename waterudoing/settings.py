@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from dotenv import load_dotenv
 from pathlib import Path
 import os
 
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=#ig!mkz6zv%r6apn0wadtqjfg1$cy_#m+26)3%5)m&h4j=@u3'
+SECRET_KEY = 'DO NOT USE THIS KEY IN PRODUCTION!'
 if os.environ.get('SECRET_KEY'):
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
