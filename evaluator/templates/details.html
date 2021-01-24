@@ -3,8 +3,9 @@
 {% block page-header %}{{ profile.user }}'s details{% endblock %}
 {% block container %}
 <link rel="stylesheet" href="/static/css/profile.css">
-<table class="content-table"></table>
-<tbody>           
+<table class="content-table">
+<tbody>
+    <a href="{% url 'result' username=user %}">View score summary</a>
     <tr>
     <th>Name</th>
     <td class="tg-entry">{{ profile.user }}</td>
@@ -54,9 +55,8 @@
         <th>Pool Size</th>
         <td class="tg-entry">{{ profile.get_swimming_pool_display }}</td>
     </tr>
-
 </tbody>
+
 </table>
 
-<p><a href="{% url 'result' username=user %}">View score summary</a></p>
 {% endblock %}
