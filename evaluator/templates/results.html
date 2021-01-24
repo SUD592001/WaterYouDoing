@@ -7,13 +7,13 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="/static/css/main.css"> 
     <link rel="stylesheet" href="/static/css/results.css">
-    <title>Result</title>
+    <title>{{ user }}'s result</title>
 </head>
 
 <body>
   <div id="container">
     <h1 class="logo">Water-U-Doing?</h1>
-    <h2 class="page-header">Result</h2>
+    <h2 class="page-header">{{ user }}'s result</h2>
   </div>      
   <article class="card">
     <div class="thumb"></div>
@@ -26,7 +26,6 @@
     </div>
   </article>
   <p style="text-align: center;"><a href="{% url 'detail' username=user %}">View score detail</a></p>
-  <p style="text-align: center;"><a href="{% url 'evaluate' %}">Retake evaluation</a></p>
 
     <div class="header">        
         <!--Waves Container-->

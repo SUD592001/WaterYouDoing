@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block title %}Details{% endblock %}
-{% block page-header %}Details{% endblock %}
+{% block title %}{{ profile.user }}'s details{% endblock %}
+{% block page-header %}{{ profile.user }}'s details{% endblock %}
 {% block container %}
 <link rel="stylesheet" href="/static/css/leaderboard.css">
 <table class="tg">
@@ -63,8 +63,5 @@
 </tbody>
 </table>
 
-<p>
-    <a href="{% url 'result' username=user %}">View score detail</a><br><br>
-    <a href="{% url 'evaluate' %}">Retake evaluation</a>
-</p>
+<p><a href="{% url 'result' username=user %}">View score summary</a></p>
 {% endblock %}
