@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Error...{% endblock %}
+{% block page-header %}Error...{% endblock %}
+{% block container %}
+<p class="white">Sorry, we can't find the evaluation you're looking for.</p>
+<p class="white"><strong>You might want to <a href="{% url 'evaluate' %}">Take a new evaluation</a>.</strong></p>
+{% endblock %}

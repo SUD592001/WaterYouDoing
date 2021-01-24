@@ -50,11 +50,14 @@ def evaluate(request):
 @login_required
 def result(request, username=None):
     # find profile
-    if username:
-        user = User.objects.get(username=username)
-        profile = UserProfile.objects.get(user=user)
-    else:
-        profile = UserProfile.objects.get(user=request.user)
+    try:
+        if username:
+            user = User.objects.get(username=username)
+            profile = UserProfile.objects.get(user=user)
+        else:
+            profile = UserProfile.objects.get(user=request.user)
+    except (User.DoesNotExist, UserProfile.DoesNotExist):
+        return render(request, 'error.html', status=400)
     # assign tier and message
     if profile.score > settings.AVG_WEEKLY_WATER_HI:
         tier = 'water-u-doing.php'
@@ -80,8 +83,11 @@ def result(request, username=None):
 
 @login_required
 def detail(request, username):
-    user = User.objects.get(username=username)
-    profile = UserProfile.objects.get(user=user)
+    try:
+        user = User.objects.get(username=username)
+        profile = UserProfile.objects.get(user=user)
+    except (User.DoesNotExist, UserProfile.DoesNotExist):
+        return render(request, 'error.html', status=400)
     context = {'profile': profile}
     return render(request, 'details.html', context)
 
