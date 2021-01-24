@@ -63,7 +63,7 @@ article.card {
 article.card .thumb {
   width: auto;
   height: 260px;
-  background: url('/evaluator/static/vader.gif') no-repeat center;
+  background: url('/static/images/volcano.png') no-repeat center;
   background-size: cover;
   border-radius: 3px;
 }
