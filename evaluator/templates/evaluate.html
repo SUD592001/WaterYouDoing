@@ -1,14 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}Evaluate{% endblock %}
+{% block title %}Evaluate Water Usage{% endblock %}
 {% block page-header %}Evaluate Water Usage{% endblock %}
 
 {% block container %}
-<form method="POST">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit">
-</form>
-
+{% csrf_token %}
 <div id="form-box">
     <i id="prev-btn" class="fas fa-arrow-left"></i>
     <i id="next-btn" class="fas fa-arrow-right"></i>
@@ -20,6 +15,6 @@
     <div id="progress-bar"></div>
   </div>
 </div>
-    
+
 <script src="/evaluate/main.js"></script>
 {% endblock %}

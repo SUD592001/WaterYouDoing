@@ -1,8 +1,18 @@
+// get CSRF token
+const csrfToken = document.getElementsByName('csrfmiddlewaretoken')[0].getAttribute('value');
+
 // Questions Array
 const questions = [
-    {% for field in form %}
-    { question: '{{ field.label }}'},
-    {% endfor %}
+    { question: 'On average, how many loads of laundry do you use per week?', name: 'weekly_laundry_loads', type: 'number'},
+    { question: 'Do you have a top load, or front load washer?', name: 'washer_type'},
+    { question: 'On average, how many times do you go to the bathroom each day?', name: 'daily_bathroom_trips', type: 'number'},
+    { question: 'On average, how many showers do you take in a week?', name: 'weekly_showers', type: 'number'},
+    { question: 'Do you have a normal, or efficient shower head?', name: 'shower_head'},
+    { question: 'On average, how long are your showers? (in minutes)', name: 'shower_times', type: 'number'},
+    { question: 'On average, how many baths do you take in a week?', name: 'weekly_baths', type: 'number'},
+    { question: 'On average, how many times do you wash your dishes in a week?', name: 'weekly_dishes', type: 'number'},
+    { question: 'On average, how many times do you water your lawn in a week?', name: 'weekly_sprinkler', type: 'number'},
+    { question: 'How Big Is Your Swimming Pool, if you have one?', name: 'swimming_pool'},
     // { question: 'Enter Your Email', pattern: /\S+@\S+\.\S+/ },
     // { question: 'Create A Password', type: 'password' }
   ];
@@ -153,8 +163,27 @@ function inputPass() {
   }
 }
 
+// build POST data string
+function buildPOSTData() {
+  // include CSRF token
+  postData = 'csrfmiddlewaretoken=' + csrfToken + '&';
+  for (i = 0; i < questions.length; i++) {
+    postData += questions[i].name + '=' + encodeURI(questions[i].answer);
+    if (i < questions.length - 1) {
+      postData += '&';
+    }
+  }
+  return postData;
+}
+
 // All Fields Complete - Show h1 end
 function formComplete() {
+  // POST to server
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/evaluate/new/", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  console.log(buildPOSTData());
+  xhr.send(buildPOSTData());
   const h1 = document.createElement('h1');
   h1.classList.add('end');
   h1.appendChild(

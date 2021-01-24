@@ -7,6 +7,7 @@ from django.urls import reverse
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=False, unique=True)
     bio = models.TextField(null=True, blank=True)
+    score = models.IntegerField(null=False)
     weekly_laundry_loads = models.IntegerField(null=False)
     daily_bathroom_trips = models.IntegerField(null=False)
     weekly_showers = models.IntegerField(null=False)
@@ -14,15 +15,13 @@ class UserProfile(models.Model):
     weekly_baths = models.IntegerField(null=False)
     weekly_dishes = models.IntegerField(null=False)
     weekly_sprinkler = models.IntegerField(null=False)
-    swimming_pool = models.BooleanField(null=False, default=False)
-    score = models.IntegerField(null=False)
 
     shower_head_choices = [
         ("Normal Shower Head", "Normal Shower Head"),
         ("Efficient Shower Head", "Efficient Shower Head"),
     ]
 
-    shower_head_choices = models.CharField (
+    shower_head = models.CharField (
         max_length = 30,
         null=False,
         choices = shower_head_choices,
@@ -33,7 +32,7 @@ class UserProfile(models.Model):
         ("Front Load Washer", "Front Load Washer"),
     ]
 
-    washer_type_choices = models.CharField (
+    washer_type = models.CharField (
         max_length = 30,
         null=False,
         choices = washer_type_choices,
@@ -46,7 +45,7 @@ class UserProfile(models.Model):
         ("I Don't Have A Pool", "I Don't Have A Pool"),
     ]
 
-    swimming_pool_choices = models.CharField (
+    swimming_pool = models.CharField (
         max_length = 30,
         null=False,
         choices = swimming_pool_choices
