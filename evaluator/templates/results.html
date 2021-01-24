@@ -18,15 +18,15 @@
   <article class="card">
     <div class="thumb"></div>
     <div class="infos">
-      <h2 class="title">INSERT TIER HERE<span class="flag"></span></h2>
+      <h2 class="title">{{ tier }}<span class="flag" style="background: #{{ color }} no-repeat top right;"></span></h2>
       <h3 class="date"></h3>
-      <h1 class="seats">Your score: 69,420</h1>
-      <p class="txt">
-        You couldn't have done better and we are proud of you!
-      </p>
-      <h3 class="details"><a href="https://youtu.be/dQw4w9WgXcQ">Learn More</a></h3>
+      <h1 class="seats">Your score: {{ score }}</h1>
+      <p class="txt">{{ message }}</p>
+      <h3 class="details"><a href="{% url 'learn_more' %}">Learn More</a></h3>
     </div>
   </article>
+  <p style="text-align: center;"><a href="{% url 'detail' username=user %}">View score detail</a></p>
+  <p style="text-align: center;"><a href="{% url 'evaluate' %}">Retake evaluation</a></p>
 
     <div class="header">        
         <!--Waves Container-->
